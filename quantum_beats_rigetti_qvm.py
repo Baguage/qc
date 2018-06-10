@@ -29,18 +29,14 @@ def create_singlet_state():
 
 
 if __name__ == '__main__':
-    p = create_singlet_state()
-    # run the program on a QVM
     qvm = QVMConnection()
-    result = qvm.wavefunction(p)
-    print(result)
 
     # Rotation
     for angle in [0, pi/4, pi/2, 3*pi/4, pi]:
         p = create_singlet_state()
 
         # The "SWITCH_TO_SINGLET_TRIPLET_BASIS" gate
-        # will represent entangled state of two spin in singlet/triplet basis
+        # will represent the system in singlet/triplet basis
         # 11|> will mean Singlet state, and 00|> will mean Triplet state
         my_array = np.array([
             [0, 1 / math.sqrt(2), 1 / math.sqrt(2), 0],
